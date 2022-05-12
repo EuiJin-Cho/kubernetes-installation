@@ -2,7 +2,8 @@
 
 HOSTNAME=$(hostname)
 
-sed -i "1s/localhost/"${HOSTNAME}"/g" /etc/hosts
+#sed -i "1s/localhost/"${HOSTNAME}"/g" /etc/hosts
+sed -i "1s/localhost/localhost "${HOSTNAME}"/g" /etc/hosts
 
 swapoff -a
 
@@ -64,7 +65,11 @@ sudo apt-get update -y
 
 sudo apt-get install -y kubelet kubeadm kubectl -y
 
-sudo apt-mark hold kubelet kubeadm kubectl
+sudo apt install -y kubelet=1.23.6-00
+sudo apt install -y kubeadm=1.23.6-00
+sudo apt install -y kubectl=1.23.6-00
+
+### sudo apt-mark hold kubelet kubeadm kubectl
 
 kubeadm version
 kubelet --version
