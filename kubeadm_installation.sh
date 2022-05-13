@@ -63,13 +63,13 @@ EOF
 
 sudo apt-get update -y
 
-sudo apt-get install -y kubelet kubeadm kubectl -y
+#sudo apt-get install -y kubelet kubeadm kubectl -y
 
 sudo apt install -y kubelet=1.23.6-00
 sudo apt install -y kubeadm=1.23.6-00
 sudo apt install -y kubectl=1.23.6-00
 
-### sudo apt-mark hold kubelet kubeadm kubectl
+sudo apt-mark hold kubelet kubeadm kubectl
 
 kubeadm version
 kubelet --version
